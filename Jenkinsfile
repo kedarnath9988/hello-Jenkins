@@ -12,21 +12,22 @@ pipeline{
         }
 
         stages {
-            stage('build'){
+            stage('inti'){
                 steps{
                     sh """
-                    echo this is the buils stage 
+                     ls -ltr 
+                     
                     """
                 }
             }
-            stage('test'){
+            stage('plan'){
                 steps{
                     sh """
                     echo this is test stage
                     """
                 }
             }
-            stage('deploy'){
+            stage('apply'){
                 steps{
                     sh """
                     echo this is deploy stage
