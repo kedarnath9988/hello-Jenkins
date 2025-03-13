@@ -1,0 +1,39 @@
+pipeline{
+        agent any 
+        stages {
+            stage('build'){
+                steps{
+                    sh """
+                    echo this is the buils stage 
+                    """
+                }
+            }
+            stage('test'){
+                steps{
+                    sh """
+                    echo this is test stage
+                    """
+                }
+            }
+            stage('deploy'){
+                steps{
+                    sh """
+                    echo this is deploy stage
+                    """
+                }
+            }
+        }
+        post {
+            always {
+                echo "i will run always "
+            }
+            success {
+                echo 'pipeline is successfull'
+            }
+            failure {
+                echo 'pipeline is failed'
+            }
+            
+        }
+
+}
