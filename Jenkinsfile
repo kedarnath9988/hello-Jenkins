@@ -1,5 +1,16 @@
 pipeline{
-        agent any 
+        agent {
+            label 'node-01'
+        } 
+        options {
+            timeout(time:30, unit:'MINUTES')
+            disableConcurrentBuilds()
+            ansiColor('xterm')
+        }
+        parameters {
+            choice(name: 'terraform resorce ', choices: ['apply', 'destroy' ], description: 'Pick something')
+        }
+
         stages {
             stage('build'){
                 steps{
@@ -33,7 +44,7 @@ pipeline{
             failure {
                 echo 'pipeline is failed'
             }
-            
+
         }
 
 }
