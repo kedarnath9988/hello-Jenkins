@@ -15,7 +15,7 @@ pipeline{
             stage('inti'){
                 steps{
                     sh """
-                     cd sg 
+                      
                      terraform init -reconfigure 
                     """
                 }
