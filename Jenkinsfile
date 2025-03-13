@@ -8,15 +8,15 @@ pipeline{
             ansiColor('xterm')
         }
         parameters {
-            choice(name: 'terraform resorce ', choices: ['apply', 'destroy' ], description: 'Pick something')
+            choice(name: 'terraform resorce', choices: ['apply', 'destroy' ], description: 'Pick something')
         }
 
         stages {
             stage('inti'){
                 steps{
                     sh """
-                     ls -ltr 
-                     
+                     cd sg 
+                     terraform init -reconfigure 
                     """
                 }
             }
